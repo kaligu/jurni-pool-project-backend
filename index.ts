@@ -4,6 +4,7 @@ import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
 import compression from 'compression';
 import cors from 'cors';
+require("dotenv").config();
 
 const app = express();
 
@@ -17,6 +18,6 @@ app.use(bodyParser.json());
 
 const server= http.createServer(app);
 
-server.listen(9090, () => {
+server.listen(parseInt(process.env.SERVER_PORT as string,10), () => {
     console.log("Server running on > http://localhost:9090/ ");
 })
