@@ -4,7 +4,7 @@ import * as UserController from "../controllers/UserController";
 //create sxpress router instance
 const router = express.Router();
 
-//add New User
-router.post('/new', UserController.createNewUser);
+//login User
+router.post('/login', UserController.loginUser);
 
 export default router;
