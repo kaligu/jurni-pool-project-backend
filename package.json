@@ -1,0 +1,12 @@
+{
+  "name": "jurni-pool-project-backend",
+  "version": "1.0.0",
+  "description": "Srilankan's No.1 Vehicles Pooling Syatem",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
