@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser'
 import compression from 'compression';
 import cors from 'cors';
 require("dotenv").config();
+import UserRoutes from './src/routes/UserRoutes';
 
 //invoke express
 const app = express();
@@ -20,6 +21,8 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 
 //--------------------Set Routes-----------------------------------------------
+
+app.use('/api/user', UserRoutes);
 
 //-----------------------------------------------------------------------------
 
