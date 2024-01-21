@@ -6,18 +6,27 @@ import compression from 'compression';
 import cors from 'cors';
 require("dotenv").config();
 
+//invoke express
 const app = express();
 
+//config cors
 app.use(cors({
     credentials:true
 }));
 
+//initialise compression ,cookieParser ,bodyParser
 app.use(compression());
 app.use(cookieParser());
 app.use(bodyParser.json());
 
+//--------------------Set Routes-----------------------------------------------
+
+//-----------------------------------------------------------------------------
+
+//create server
 const server= http.createServer(app);
 
+//listen server
 server.listen(parseInt(process.env.SERVER_PORT as string,10), () => {
     console.log("Server running on > http://localhost:9090/ ");
 })
