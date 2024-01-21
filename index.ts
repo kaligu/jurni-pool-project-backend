@@ -16,3 +16,7 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 
 const server= http.createServer(app);
+
+server.listen(9090, () => {
+    console.log("Server running on > http://localhost:9090/ ");
+})
