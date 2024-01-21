@@ -16,6 +16,7 @@ export const loginUser = async (
             audience: clientId,
         });
 
+
         const payload = ticket.getPayload();
 
         // Verify additional details if needed
