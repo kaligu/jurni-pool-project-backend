@@ -1,12 +1,13 @@
 import express from "express";
 import { OAuth2Client } from 'google-auth-library';
+require("dotenv").config();
 
 export const loginUser = async (
     req: express.Request,
     res: express.Response
 ) => {
     const token = req.body.userData.credential; // Assuming the JWT token is in req.body.userData.credential
-    const clientId = '439833973834-e1inhrr6q80nvv8kmtr0i3m9lpbh54nn.apps.googleusercontent.com'; // Your Google Client ID
+    const clientId = process.env.GOOGLE_AUTH_CLIENT_ID; // Your Google Client ID
 
     const client = new OAuth2Client(clientId);
 
