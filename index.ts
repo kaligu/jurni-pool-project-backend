@@ -31,5 +31,5 @@ const server= http.createServer(app);
 
 //listen server
 server.listen(parseInt(process.env.SERVER_PORT as string,10), () => {
-    console.log("Server running on > http://localhost:9090/ ");
+    console.log(`Server running on http://localhost:${process.env.SERVER_PORT}/`);
 })
