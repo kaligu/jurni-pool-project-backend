@@ -11,9 +11,12 @@ import UserRoutes from './src/routes/UserRoutes';
 const app = express();
 
 //config cors
-app.use(cors({
-    credentials:true
-}));
+app.use(
+    cors({
+      origin: 'https://jur-ni.web.app',
+      credentials: true,
+    })
+);
 
 //initialise compression ,cookieParser ,bodyParser
 app.use(compression());
