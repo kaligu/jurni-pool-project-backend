@@ -37,6 +37,7 @@ export const loginUser = async (
         // Use `create` instead of `save` to insert a new document
         let user: SchemaTypes.ICredentials | null = await credentialsModel.save({ session });
         
+        console.log('New user saved');
         res.status(200).send(new RespondDTO(200, "User created successfully.",user));
       } else {
         console.error('Token is not valid');
