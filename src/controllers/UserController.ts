@@ -1,7 +1,7 @@
 import express from "express";
 import { OAuth2Client } from 'google-auth-library';
 require("dotenv").config();
-import DBConnection from "../db/DBConnection";
+import { mongooseInstance } from "../db/DBConnection";
 import CredentialsModel from '../models/CredentialsModel';
 import * as SchemaTypes from "../types/SchemaTypes";
 import RespondDTO from "../dtos/RespondDTO";
@@ -10,7 +10,7 @@ export const loginUser = async (
   req: express.Request,
   res: express.Response
 ) => {
-  const session = await DBConnection.startSession();
+    const session = await mongooseInstance.startSession();  // Update the function call
 
   try {
     await session.withTransaction(async () => {
