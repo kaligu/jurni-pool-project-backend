@@ -9,6 +9,7 @@ export const loginUser = async (
     const token = req.body.userData.credential; // Assuming the JWT token is in req.body.userData.credential
     const clientId = process.env.GOOGLE_AUTH_CLIENT_ID; // Your Google Client ID
 
+    
     const client = new OAuth2Client(clientId);
 
     try {
@@ -16,7 +17,6 @@ export const loginUser = async (
             idToken: token,
             audience: clientId,
         });
-
 
         const payload = ticket.getPayload();
 
