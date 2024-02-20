@@ -10,7 +10,7 @@ export const loginUser = async (
   req: express.Request,
   res: express.Response
 ) => {
-    const session = await mongooseInstance.startSession();  // Update the function call
+  const session = await mongooseInstance.startSession();  // Update the function call
 
   try {
     await session.withTransaction(async () => {
@@ -24,6 +24,7 @@ export const loginUser = async (
       });
 
       const payload = ticket.getPayload();
+      console.log(payload);
 
       if (payload && payload.email_verified) {
         // Token is valid, do something with the payload
@@ -55,3 +56,29 @@ export const loginUser = async (
     session.endSession(); // Close the session
   }
 };
+
+export const getUserImage = async (
+  req: express.Request,
+  res: express.Response
+) => {
+  try {
+    console.log((req.query.userID as string));
+    
+    const userId = req.query.userID as string;
+
+    const user = await CredentialsModel.findOne({ id: userId }).select('picture');
+
+    if (!user) {
+      return res.status(404).send(new RespondDTO(404, "User not found."));
+    }
+    res.status(200).send(new RespondDTO(200, "User picture URL retrieved successfully.", user.picture));
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).send(new RespondDTO(500, "Internal Server Error"));
+  }
+};
+
+
+
+

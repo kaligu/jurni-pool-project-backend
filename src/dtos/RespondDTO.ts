@@ -1,43 +1,43 @@
 export default class RespondDTO {
-    private _status: number;
-    private _message: string;
-    private _data?: any;
+    private status: number;
+    private message: string;
+    private data?: any;
 
     constructor(status: number, message: string, data?: any) {
-        this._status = status;
-        this._message = message;
-        this._data = data;
+        this.status = status;
+        this.message = message;
+        this.data = data;
     }
 
-    get status(): number {
-        return this._status;
+    getstatus(): number {
+        return this.status;
     }
 
-    set status(value: number) {
-        this._status = value;
+    setstatus(value: number) {
+        this.status = value;
     }
 
-    get message(): string {
-        return this._message;
+    getmessage(): string {
+        return this.message;
     }
 
-    set message(value: string) {
-        this._message = value;
+    setmessage(value: string) {
+        this.message = value;
     }
 
-    get data(): any {
-        return this._data;
+    getdata(): any {
+        return this.data;
     }
 
-    set data(value: any) {
-        this._data = value;
+    setdata(value: any) {
+        this.data = value;
     }
 
     tostring() {
         return {
-            status: this._status,
-            message: this._message,
-            data: this._data
+            status: this.status,
+            message: this.message,
+            data: this.data
         }
     }
 }
